@@ -14,7 +14,7 @@ import meta.modele.expression.StringExpression;
 import meta.modele.expression.UnResolveSymbole;
 import meta.modele.expression.VarriableReference;
 import meta.modele.instructions.Affectation;
-import meta.modele.instructions.If;
+import meta.modele.instructions.IfInstruction;
 import meta.modele.instructions.ProcedureCall;
 import meta.modele.programme.Programme;
 
@@ -66,7 +66,7 @@ public interface Visiteur {
 	public void visite(ProcedureCall procedureCall) throws PropagationExeption;
 
 
-	public void visite(If ifInstruction) throws PropagationExeption;
+	public void visite(IfInstruction ifInstruction) throws PropagationExeption;
 
 
 	public void visite(Block block) throws PropagationExeption;

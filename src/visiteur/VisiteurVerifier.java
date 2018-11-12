@@ -26,7 +26,7 @@ import meta.modele.expression.StringExpression;
 import meta.modele.expression.UnResolveSymbole;
 import meta.modele.expression.VarriableReference;
 import meta.modele.instructions.Affectation;
-import meta.modele.instructions.If;
+import meta.modele.instructions.IfInstruction;
 import meta.modele.instructions.ProcedureCall;
 import meta.modele.procedure.Procedure;
 import meta.modele.programme.Programme;
@@ -181,7 +181,7 @@ public class VisiteurVerifier implements Visiteur {
 	}
 
 	@Override
-	public void visite(If ifInstruction) throws PropagationExeption {
+	public void visite(IfInstruction ifInstruction) throws PropagationExeption {
 		try {
 			ifInstruction.getExpressionCondition().accept(this);
 		} catch (PropagationExeption exception) {

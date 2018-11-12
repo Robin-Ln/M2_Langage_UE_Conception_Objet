@@ -5,17 +5,19 @@ import meta.modele.block.Block;
 import meta.modele.expression.Expression;
 import visiteur.Visiteur;
 
-public class While extends Instruction {
+public class IfInstruction extends Instruction {
 
 	/*
 	 * Attributs
 	 */
 
 	private String idExpressionCondition;
-	private String idBlock;
+	private String idBlockTrue;
+	private String idBlockFalse;
 
 	private Expression expressionCondition;
-	private Block block;
+	private Block blockTrue;
+	private Block blockFalse;
 
 	/*
 	 * Methodes
@@ -26,6 +28,8 @@ public class While extends Instruction {
 		visiteur.visite(this);
 	}
 
+	
+	
 	/*
 	 * Accesseurs
 	 */
@@ -37,12 +41,20 @@ public class While extends Instruction {
 		this.idExpressionCondition = idExpressionCondition;
 	}
 
-	public String getIdBlock() {
-		return idBlock;
+	public String getIdBlockTrue() {
+		return idBlockTrue;
 	}
 
-	public void setIdBlock(String idBlock) {
-		this.idBlock = idBlock;
+	public void setIdBlockTrue(String idBlockTrue) {
+		this.idBlockTrue = idBlockTrue;
+	}
+
+	public String getIdBlockFalse() {
+		return idBlockFalse;
+	}
+
+	public void setIdBlockFalse(String idBlockFalse) {
+		this.idBlockFalse = idBlockFalse;
 	}
 
 	public Expression getExpressionCondition() {
@@ -53,12 +65,21 @@ public class While extends Instruction {
 		this.expressionCondition = expressionCondition;
 	}
 
-	public Block getBlock() {
-		return block;
+	public Block getBlockTrue() {
+		return blockTrue;
 	}
 
-	public void setBlock(Block block) {
-		this.block = block;
+	public void setBlockTrue(Block blockTrue) {
+		this.blockTrue = blockTrue;
 	}
+
+	public Block getBlockFalse() {
+		return blockFalse;
+	}
+
+	public void setBlockFalse(Block blockFalse) {
+		this.blockFalse = blockFalse;
+	}
+	
 
 }

@@ -25,7 +25,7 @@ import meta.modele.expression.StringExpression;
 import meta.modele.expression.UnResolveSymbole;
 import meta.modele.expression.VarriableReference;
 import meta.modele.instructions.Affectation;
-import meta.modele.instructions.If;
+import meta.modele.instructions.IfInstruction;
 import meta.modele.instructions.ProcedureCall;
 import meta.modele.programme.Programme;
 
@@ -133,7 +133,7 @@ public class VisiteurCreerProgramme implements Visiteur {
 	}
 
 	@Override
-	public void visite(If ifInstruction) throws PropagationExeption {
+	public void visite(IfInstruction ifInstruction) throws PropagationExeption {
 		Element elementExpression = this.document.getElementById(ifInstruction.getIdExpressionCondition());
 		ifInstruction.setExpressionCondition(this.getExpression(elementExpression));
 		
@@ -329,7 +329,7 @@ public class VisiteurCreerProgramme implements Visiteur {
 
 				case "If":
 					try {
-						If ifInstruction = new If();
+						IfInstruction ifInstruction = new IfInstruction();
 						ifInstruction.setIdExpressionCondition(elementExpression.getAttribute("idExpression"));
 						ifInstruction.setIdBlockTrue(elementExpression.getAttribute("idBlockTrue"));
 						ifInstruction.setIdBlockFalse(elementExpression.getAttribute("idBlockFalse"));
