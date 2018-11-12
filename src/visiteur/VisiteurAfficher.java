@@ -103,7 +103,6 @@ public class VisiteurAfficher implements Visiteur {
 	@Override
 	public void visite(Declaration declaration) {
 		try {
-			this.afficherTabulation();
 			this.resultat += "var ";
 			declaration.getVarriableReference().accept(this);
 			this.resultat += ";\n";
@@ -114,7 +113,6 @@ public class VisiteurAfficher implements Visiteur {
 	@Override
 	public void visite(Affectation affectation) {
 		try {
-			this.afficherTabulation();
 			affectation.getReference().accept(this);
 			this.resultat += " = ";
 			affectation.getExpression().accept(this);
@@ -127,6 +125,7 @@ public class VisiteurAfficher implements Visiteur {
 	public void visite(Programme programme) {
 		for (Declaration declaration : programme.getDeclarations()) {
 			try {
+				this.afficherTabulation();
 				declaration.accept(this);
 			} catch (PropagationExeption e) {
 			}
@@ -134,6 +133,7 @@ public class VisiteurAfficher implements Visiteur {
 
 		for (ElementProgramme elementProgramme : programme.getElements()) {
 			try {
+				this.afficherTabulation();
 				elementProgramme.accept(this);
 			} catch (PropagationExeption e) {
 			}
@@ -153,18 +153,16 @@ public class VisiteurAfficher implements Visiteur {
 				this.resultat += ", ";
 			}
 		}
-		this.afficherTabulation();
 		this.resultat += ");\n";
 	}
-	
+
 	@Override
 	public void visite(If ifInstruction) throws PropagationExeption {
-		this.afficherTabulation();
 		this.resultat += "if (";
 		ifInstruction.getExpressionCondition().accept(this);
 		this.resultat += " )";
 		ifInstruction.getBlockTrue().accept(this);
-		if(ifInstruction.getBlockFalse() != null) {
+		if (ifInstruction.getBlockFalse() != null) {
 			this.resultat += "else";
 			ifInstruction.getBlockFalse().accept(this);
 		}
@@ -175,16 +173,15 @@ public class VisiteurAfficher implements Visiteur {
 	public void visite(Block block) throws PropagationExeption {
 		this.tabultation++;
 		this.resultat += "{\n";
-		this.afficherTabulation();
 		this.visite((Programme) block);
 		this.tabultation--;
 		this.resultat += "}";
-		
+
 	}
-	
+
 	private void afficherTabulation() {
-		for(int i = 1;i <= this.tabultation; i++) {
-			this.resultat += "\t";
+		for (int i = 0; i < this.tabultation; i++) {
+			this.resultat += "   ";
 		}
 	}
 
