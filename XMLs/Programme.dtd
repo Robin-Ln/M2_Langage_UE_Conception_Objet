@@ -1,0 +1,109 @@
+<!ELEMENT Programme (IntegerExpression 
+					| DoubleExpression
+					| StringExpression
+					| BooleanExpression
+					| UnResolveSymbole
+					| MultiplicationExpression 
+					| AdditionExpression
+					| InferieurExpression
+					| Declaration
+					| Affectation
+					| ProcedureCall
+					| If
+					| Block)*>
+<!ATTLIST Programme 
+	valide CDATA #IMPLIED
+>
+
+<!ELEMENT IntegerExpression EMPTY>
+<!ATTLIST IntegerExpression 
+	id ID #REQUIRED
+	valeur CDATA #REQUIRED
+>
+
+<!ELEMENT BooleanExpression EMPTY>
+<!ATTLIST BooleanExpression 
+	id ID #REQUIRED
+	valeur CDATA #REQUIRED
+>
+
+<!ELEMENT DoubleExpression EMPTY>
+<!ATTLIST DoubleExpression 
+	id ID #REQUIRED
+	valeur CDATA #REQUIRED
+>
+
+<!ELEMENT StringExpression EMPTY>
+<!ATTLIST StringExpression 
+	id ID #REQUIRED
+	valeur CDATA #REQUIRED
+>
+
+<!ELEMENT UnResolveSymbole EMPTY>
+<!ATTLIST UnResolveSymbole 
+	id ID #REQUIRED
+	nomSymbole CDATA #REQUIRED
+>
+
+<!ELEMENT MultiplicationExpression EMPTY>
+<!ATTLIST MultiplicationExpression 
+	id ID #REQUIRED
+	idOperandeGauche IDREF #REQUIRED
+	idOperandeDroite IDREF #REQUIRED
+>
+
+<!ELEMENT AdditionExpression EMPTY>
+<!ATTLIST AdditionExpression 
+	id ID #REQUIRED
+	idOperandeGauche IDREF #REQUIRED
+	idOperandeDroite IDREF #REQUIRED
+>
+
+<!ELEMENT InferieurExpression EMPTY>
+<!ATTLIST InferieurExpression 
+	id ID #REQUIRED
+	idOperandeGauche IDREF #REQUIRED
+	idOperandeDroite IDREF #REQUIRED
+>
+
+<!ELEMENT Declaration EMPTY>
+<!ATTLIST Declaration 
+	nomSymbole CDATA #REQUIRED
+>
+
+<!ELEMENT Affectation EMPTY>
+<!ATTLIST Affectation 
+	nomSymbole CDATA #REQUIRED
+	idExpression IDREF #REQUIRED
+>
+
+<!ELEMENT ProcedureCall EMPTY>
+<!ATTLIST ProcedureCall 
+	nomProcedure CDATA #REQUIRED
+	idExpressions IDREFS #REQUIRED
+>
+
+<!ELEMENT If EMPTY>
+<!ATTLIST If 
+	idExpression IDREF #REQUIRED
+	idBlockTrue IDREF #REQUIRED
+	idBlockFalse IDREF #IMPLIED
+>
+
+
+<!ELEMENT Block (IntegerExpression 
+				| DoubleExpression
+				| StringExpression
+				| BooleanExpression
+				| UnResolveSymbole
+				| MultiplicationExpression 
+				| AdditionExpression
+				| InferieurExpression
+				| Declaration
+				| Affectation
+				| ProcedureCall
+				| If
+				| Block)*>
+<!ATTLIST Block 
+	id ID #REQUIRED
+>

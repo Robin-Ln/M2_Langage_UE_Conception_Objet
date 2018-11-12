@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Programme SYSTEM "Programme.dtd">
+
+
+<Programme>
+
+	<IntegerExpression id="id0" valeur="10" />
+
+	<IntegerExpression id="id1" valeur="2" />
+
+	<MultiplicationExpression id="id2"
+		idOperandeGauche="id0" idOperandeDroite="id1" />
+
+	<InferieurExpression id="id5"
+		idOperandeGauche="id0" idOperandeDroite="id1" />
+
+	<Declaration nomSymbole="x" />
+
+	<Declaration nomSymbole="z" />
+
+	<Declaration nomSymbole="y" />
+
+	<Affectation nomSymbole="x" idExpression="id2" />
+
+	<Affectation nomSymbole="y" idExpression="id5" />
+
+	<UnResolveSymbole nomSymbole="x" id="id4" />
+
+	<AdditionExpression idOperandeDroite="id0"
+		idOperandeGauche="id4" id="id3" />
+
+	<Affectation nomSymbole="z" idExpression="id3" />
+
+	<UnResolveSymbole nomSymbole="z" id="id6" />
+	<UnResolveSymbole nomSymbole="y" id="id7" />
+ 
+	<ProcedureCall idExpressions="id4" nomProcedure="print" />
+	<ProcedureCall idExpressions="id6" nomProcedure="print" />
+	<ProcedureCall idExpressions="id7" nomProcedure="print" />
+	
+	<Block id="id8">
+		<ProcedureCall idExpressions="id4" nomProcedure="print" />
+	</Block>
+	<Block id="id9">
+		<ProcedureCall idExpressions="id7" nomProcedure="print" />
+	</Block>
+	<If idExpression="id7" idBlockTrue="id8" idBlockFalse="id9"/>
+</Programme>
+
+<!-- 
+var x;
+var z;
+var y;
+x = (10*2);
+y = (2<10);
+z = (x+10);
+print(x);
+print(z);
+print(y); 
+if(y){
+	print(y);
+}else{
+	print(x);
+}
+-->

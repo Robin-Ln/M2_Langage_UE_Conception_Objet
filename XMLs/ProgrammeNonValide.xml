@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Programme SYSTEM "Programme.dtd">
+
+
+<Programme>
+
+	<IntegerExpression id="id0" valeur="10" />
+
+	<IntegerExpression id="id1" valeur="2" />
+
+	<DoubleExpression id="id3" valeur="2.0" />
+
+	<StringExpression id="id5" valeur="2.0" />
+
+	<UnResolveSymbole id="id7" nomSymbole="y" />
+
+	<MultiplicationExpression id="id2"
+		idOperandeGauche="id0" idOperandeDroite="id1" />
+
+	<MultiplicationExpression id="id4"
+		idOperandeGauche="id0" idOperandeDroite="id3" />
+
+	<MultiplicationExpression id="id6"
+		idOperandeGauche="id0" idOperandeDroite="id5" />
+
+	<MultiplicationExpression id="id8"
+		idOperandeGauche="id0" idOperandeDroite="id7" />
+
+	<MultiplicationExpression id="id11"
+		idOperandeGauche="id0" idOperandeDroite="id7" />
+
+	<Declaration nomSymbole="x" />
+
+	<Declaration nomSymbole="x" />
+
+	<Declaration nomSymbole="z" />
+
+	<UnResolveSymbole id="id10" nomSymbole="z" />
+
+	<MultiplicationExpression id="id9"
+		idOperandeGauche="id10" idOperandeDroite="id7" />
+
+	<Affectation nomSymbole="x" idExpression="id2" />
+
+	<Affectation nomSymbole="x" idExpression="id4" />
+
+	<Affectation nomSymbole="x" idExpression="id6" />
+
+	<Affectation nomSymbole="x" idExpression="id8" />
+
+	<Affectation nomSymbole="y" idExpression="id1" />
+
+	<Affectation nomSymbole="x" idExpression="id9" />
+
+	<Affectation nomSymbole="x" idExpression="id11" />
+
+	<UnResolveSymbole id="id12" nomSymbole="l" />
+
+	<Affectation nomSymbole="x" idExpression="id12" />
+
+	<ProcedureCall idExpressions="id6" nomProcedure="print3" />
+
+
+</Programme>
+
+<!-- 
+ var x;
+ var x;
+ var z;
+ x = (10*2); 
+ x = (10*2.0); 
+ x = (10*"2.0"); 
+ x = (10*y); 
+ y = 2;
+ x = (z*y); 
+ x = (10*y); 
+ print3(...)
+-->

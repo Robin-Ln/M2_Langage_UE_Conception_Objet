@@ -1,0 +1,49 @@
+package meta.modele.expression.verification;
+
+import exceptions.OperationImpossible;
+import meta.modele.expression.BooleanExpression;
+import meta.modele.expression.DoubleExpression;
+import meta.modele.expression.ExpressionUnaire;
+import meta.modele.expression.IntegerExpression;
+import meta.modele.expression.StringExpression;
+
+public interface VerifierMultiplicationExpression {
+	/*
+	 * Methodes
+	 */
+
+	ExpressionUnaire verifierMultiplicationAvec(ExpressionUnaire expressionUnaire) throws OperationImpossible;
+
+	ExpressionUnaire verifierMultiplicationAvecInteger(StringExpression stringExpression) throws OperationImpossible;
+
+	ExpressionUnaire verifierMultiplicationAvecInteger(IntegerExpression integerExpression) throws OperationImpossible;
+
+	ExpressionUnaire verifierMultiplicationAvecInteger(DoubleExpression doubleExpression) throws OperationImpossible;
+	
+	ExpressionUnaire verifierMultiplicationAvecInteger(BooleanExpression booleanExpression) throws OperationImpossible;
+
+	ExpressionUnaire verifierMultiplicationAvecString(StringExpression stringExpression) throws OperationImpossible;
+
+	ExpressionUnaire verifierMultiplicationAvecString(IntegerExpression integerExpression) throws OperationImpossible;
+
+	ExpressionUnaire verifierMultiplicationAvecString(DoubleExpression doubleExpression) throws OperationImpossible;
+	
+	ExpressionUnaire verifierMultiplicationAvecString(BooleanExpression booleanExpression) throws OperationImpossible;
+
+	ExpressionUnaire verifierMultiplicationAvecDouble(StringExpression stringExpression) throws OperationImpossible;
+
+	ExpressionUnaire verifierMultiplicationAvecDouble(IntegerExpression integerExpression) throws OperationImpossible;
+
+	ExpressionUnaire verifierMultiplicationAvecDouble(DoubleExpression doubleExpression) throws OperationImpossible;
+
+	ExpressionUnaire verifierMultiplicationAvecDouble(BooleanExpression booleanExpression) throws OperationImpossible;
+
+	ExpressionUnaire verifierMultiplicationAvecBoolean(StringExpression stringExpression) throws OperationImpossible;
+
+	ExpressionUnaire verifierMultiplicationAvecBoolean(IntegerExpression integerExpression) throws OperationImpossible;
+
+	ExpressionUnaire verifierMultiplicationAvecBoolean(DoubleExpression doubleExpression) throws OperationImpossible;
+	
+	ExpressionUnaire verifierMultiplicationAvecBoolean(BooleanExpression doubleExpression) throws OperationImpossible;
+
+}
