@@ -1,5 +1,5 @@
 package tests;
-
+/*
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -11,8 +11,9 @@ import meta.modele.expression.IntegerExpression;
 import meta.modele.expression.MultiplicationExpression;
 import modele.expression.visiteurs.impl.VisiteurExpressionInterpreteur;
 import modele.expression.visiteurs.impl.VisiteurExpressionString;
-
+*/
 class TestVisiteurString {
+	/*
 
 	@Test
 	void test1() throws PropagationExeption {
@@ -90,5 +91,5 @@ class TestVisiteurString {
 		assertTrue(integerExpression.equals(expression));
 	}
 
-
+*/
 }

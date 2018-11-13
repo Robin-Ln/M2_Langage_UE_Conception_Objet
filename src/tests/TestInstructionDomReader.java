@@ -1,5 +1,6 @@
 package tests;
 
+/*
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -18,8 +19,10 @@ import meta.modele.instructions.Instruction;
 import modele.instruction.visiteurs.impl.VisiteurInstructionString;
 import modele.xml.reader.InstructionDomReader;
 import xml.XmlErrorHandler;
+*/
 
 class TestInstructionDomReader {
+	/*
 
 	@Test
 	void test() throws ParserConfigurationException, SAXException, IOException {
@@ -62,5 +65,5 @@ class TestInstructionDomReader {
 			}
 		}
 	}
-
+*/
 }
