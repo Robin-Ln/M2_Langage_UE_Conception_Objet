@@ -28,6 +28,7 @@ import meta.modele.expression.VarriableReference;
 import meta.modele.instructions.Affectation;
 import meta.modele.instructions.IfInstruction;
 import meta.modele.instructions.ProcedureCall;
+import meta.modele.instructions.WhileInstruction;
 import meta.modele.procedure.Procedure;
 import meta.modele.programme.Programme;
 
@@ -200,6 +201,21 @@ public class VisiteurVerifier implements Visiteur {
 			throw new PropagationExeption(exception);
 		}
 
+	}
+	
+	@Override
+	public void visite(WhileInstruction whileInstruction) throws PropagationExeption {
+		try {
+			whileInstruction.getExpressionCondition().accept(this);
+		} catch (PropagationExeption exception) {
+			throw new PropagationExeption(exception);
+		}
+
+		try {
+			whileInstruction.getBlock().accept(this);
+		} catch (PropagationExeption exception) {
+			throw new PropagationExeption(exception);
+		}
 	}
 
 	@Override

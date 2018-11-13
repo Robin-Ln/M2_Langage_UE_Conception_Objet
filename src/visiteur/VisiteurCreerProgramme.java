@@ -27,6 +27,7 @@ import meta.modele.expression.VarriableReference;
 import meta.modele.instructions.Affectation;
 import meta.modele.instructions.IfInstruction;
 import meta.modele.instructions.ProcedureCall;
+import meta.modele.instructions.WhileInstruction;
 import meta.modele.programme.Programme;
 
 public class VisiteurCreerProgramme implements Visiteur {
@@ -164,6 +165,19 @@ public class VisiteurCreerProgramme implements Visiteur {
 			elementProgramme.setElementProgrammeParent(programme);
 			this.programme.getElements().add(elementProgramme);
 		}
+	}
+	
+	@Override
+	public void visite(WhileInstruction whileInstruction) throws PropagationExeption {
+		Element elementExpression = this.document.getElementById(whileInstruction.getIdExpressionCondition());
+		whileInstruction.setExpressionCondition(this.getExpression(elementExpression));
+		
+		Block block = new Block();
+		block.setIdBlock(whileInstruction.getIdBlock());
+		block.setElementProgrammeParent(whileInstruction);
+		block.accept(this);
+		whileInstruction.setBlock(block);
+		
 	}
 
 	/*
@@ -336,6 +350,18 @@ public class VisiteurCreerProgramme implements Visiteur {
 						ifInstruction.setElementProgrammeParent(programme);
 						ifInstruction.accept(this);
 						programme.getElements().add(ifInstruction);
+					} catch (PropagationExeption e) {
+					}
+					break;
+				
+				case "While":
+					try {
+						WhileInstruction whileInstruction = new WhileInstruction();
+						whileInstruction.setIdExpressionCondition(elementExpression.getAttribute("idExpression"));
+						whileInstruction.setIdBlock(elementExpression.getAttribute("idBlock"));
+						whileInstruction.setElementProgrammeParent(programme);
+						whileInstruction.accept(this);
+						programme.getElements().add(whileInstruction);
 					} catch (PropagationExeption e) {
 					}
 					break;

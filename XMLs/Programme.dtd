@@ -10,7 +10,8 @@
 					| Affectation
 					| ProcedureCall
 					| If
-					| Block)*>
+					| Block
+					| While)*>
 <!ATTLIST Programme 
 	valide CDATA #IMPLIED
 >
@@ -90,20 +91,27 @@
 	idBlockFalse IDREF #IMPLIED
 >
 
+<!ELEMENT While EMPTY>
+<!ATTLIST While 
+	idExpression IDREF #REQUIRED
+	idBlock IDREF #REQUIRED
+>
+
 
 <!ELEMENT Block (IntegerExpression 
-				| DoubleExpression
-				| StringExpression
-				| BooleanExpression
-				| UnResolveSymbole
-				| MultiplicationExpression 
-				| AdditionExpression
-				| InferieurExpression
-				| Declaration
-				| Affectation
-				| ProcedureCall
-				| If
-				| Block)*>
+					| DoubleExpression
+					| StringExpression
+					| BooleanExpression
+					| UnResolveSymbole
+					| MultiplicationExpression 
+					| AdditionExpression
+					| InferieurExpression
+					| Declaration
+					| Affectation
+					| ProcedureCall
+					| If
+					| Block
+					| While)*>
 <!ATTLIST Block 
 	id ID #REQUIRED
 >

@@ -16,6 +16,7 @@ import meta.modele.expression.VarriableReference;
 import meta.modele.instructions.Affectation;
 import meta.modele.instructions.IfInstruction;
 import meta.modele.instructions.ProcedureCall;
+import meta.modele.instructions.WhileInstruction;
 import meta.modele.programme.Programme;
 
 public class VisiteurAfficher implements Visiteur {
@@ -166,6 +167,15 @@ public class VisiteurAfficher implements Visiteur {
 			this.resultat += "else";
 			ifInstruction.getBlockFalse().accept(this);
 		}
+		this.resultat += "\n";
+	}
+	
+	@Override
+	public void visite(WhileInstruction whileInstruction) throws PropagationExeption {
+		this.resultat += "while (";
+		whileInstruction.getExpressionCondition().accept(this);
+		this.resultat += " )";
+		whileInstruction.getBlock().accept(this);
 		this.resultat += "\n";
 	}
 

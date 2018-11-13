@@ -13,7 +13,7 @@
 		idOperandeGauche="id0" idOperandeDroite="id1" />
 
 	<InferieurExpression id="id5"
-		idOperandeGauche="id0" idOperandeDroite="id1" />
+		idOperandeGauche="id1" idOperandeDroite="id0" />
 
 	<Declaration nomSymbole="x" />
 
@@ -34,33 +34,56 @@
 
 	<UnResolveSymbole nomSymbole="z" id="id6" />
 	<UnResolveSymbole nomSymbole="y" id="id7" />
- 
+
 	<ProcedureCall idExpressions="id4" nomProcedure="print" />
 	<ProcedureCall idExpressions="id6" nomProcedure="print" />
 	<ProcedureCall idExpressions="id7" nomProcedure="print" />
-	
+
 	<Block id="id8">
 		<ProcedureCall idExpressions="id4" nomProcedure="print" />
 	</Block>
 	<Block id="id9">
 		<ProcedureCall idExpressions="id7" nomProcedure="print" />
 	</Block>
-	<If idExpression="id7" idBlockTrue="id8" idBlockFalse="id9"/>
+	<If idExpression="id7" idBlockTrue="id8" idBlockFalse="id9" />
+
+	<IntegerExpression id="id10" valeur="0" />
+	<IntegerExpression id="id11" valeur="1" />
+	<IntegerExpression id="id16" valeur="10" />
+	<InferieurExpression id="id18"
+		idOperandeGauche="id15" idOperandeDroite="id16" />
+	<Declaration nomSymbole="cpt" />
+	<Affectation nomSymbole="cpt" idExpression="id10" />
+	
+	<While idBlock="id14" idExpression="id18" />
+	<Block id="id14">
+		<Affectation nomSymbole="cpt" idExpression="id12" />
+		<UnResolveSymbole nomSymbole="cpt" id="id15" />
+		<AdditionExpression id="id12"
+			idOperandeGauche="id15" idOperandeDroite="id11" />
+		<ProcedureCall idExpressions="id15" nomProcedure="print" />
+	</Block>
 </Programme>
 
-<!-- 
+<!--
 var x;
 var z;
 var y;
+var cpt;
 x = (10*2);
 y = (2<10);
 z = (x+10);
 print(x);
 print(z);
-print(y); 
-if(y){
-	print(y);
+print(y);
+if (y ){
+   print(x);
 }else{
-	print(x);
+   print(y);
 }
--->
+cpt = 0;
+while ((cpt<10) ){
+   cpt = (cpt+1);
+   print(cpt);
+}
+ -->
