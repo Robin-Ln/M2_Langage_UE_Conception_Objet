@@ -1,6 +1,7 @@
 .classpath
 .project
-*.iml
 .settings/
 .idea/
 target/
+bin/
+M2_Langage_UE_Conception_Objet.iml
